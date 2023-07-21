@@ -81,6 +81,11 @@ class ParseMessageCase(unittest.TestCase):
         message = parse_stock_price_range('inf~10')
         self.assertTrue(isinstance(message, InvalidMessage))
 
+    def test_parse_stock_price_range_if_int_with_comma(self):
+        message = parse_stock_price_range('~10,000')
+        self.assertEqual(message.lower_bound, 0)
+        self.assertEqual(message.upper_bound, 10000)
+
 
 if __name__ == '__main__':
     unittest.main()

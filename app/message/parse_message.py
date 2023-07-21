@@ -67,6 +67,7 @@ def parse_stock_price_range(message):
 
 def parse_float(s):
     try:
+        s = ''.join(s.split(','))
         return float(s)
     except ValueError:
         return -1
